@@ -1,0 +1,42 @@
+[package]
+name = "zetapp"
+version = "0.0.0"
+description = "A Tauri App"
+authors = ["you"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "zetapp_lib"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.0.0-beta.11", features = [] }
+
+[dependencies]
+tauri = { version = "2.0.0-beta.14", features = [] }
+tauri-plugin-log = "2.0.0-beta"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10.8"
+reqwest = { version = "0.12.2", features = ["json", "cookies"] }
+anyhow = "1.0.81"
+keyring = { version = "2.3.2", features = [
+  "platform-macos",
+  "platform-ios",
+  "byteorder",
+] }
+log = "*"
+env_logger = "0.11"
+tokio = { version = "1", features = [
+  "rt",
+  "rt-multi-thread",
+  "sync",
+  "fs",
+  "io-util",
+  "macros",
+] }
+thiserror = "1.0.58"
+async-trait = "0.1.80"
+trait-variant = "0.1.2"
